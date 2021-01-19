@@ -36,6 +36,9 @@ build/*
 # Codelite
 .codelite
 
+# KDevelop
+*.kdev4
+
 # .orig files
 *.orig
 
@@ -48,6 +51,7 @@ example/*
 !example/example.sln
 !example/example.vcxproj
 !example/CMakeLists.txt
+!example/meson.build
 !example/multisink.cpp
 !example/jni
 
@@ -69,3 +73,13 @@ install_manifest.txt
 # idea
 .idea/
 cmake-build-*/
+*.db
+*.ipch
+*.filters
+*.db-wal
+*.opendb
+*.db-shm
+*.vcxproj
+*.tcl
+*.user
+*.sln
