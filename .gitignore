@@ -1,6 +1,8 @@
 .vscode*
 bazel*
 # Auto generated files
+[Dd]ebug/
+[Rr]elease/
 build/*
 *.slo
 *.lo
@@ -57,6 +59,7 @@ example/*
 
 # generated files
 generated
+version.rc
 
 # Cmake
 CMakeCache.txt
@@ -69,6 +72,8 @@ install_manifest.txt
 /tests/tests.VC.db
 /tests/tests
 /tests/logs/*
+spdlogConfig.cmake
+spdlogConfigVersion.cmake
 
 # idea
 .idea/
@@ -83,3 +88,7 @@ cmake-build-*/
 *.tcl
 *.user
 *.sln
+
+# macos
+*.DS_store
+*.xcodeproj/

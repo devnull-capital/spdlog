@@ -4,7 +4,7 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-#include <spdlog/logger.h>
+#    include <spdlog/logger.h>
 #endif
 
 #include <spdlog/sinks/sink.h>
@@ -185,7 +185,7 @@ SPDLOG_INLINE void logger::sink_it_(const details::log_msg &msg)
             {
                 sink->log(msg);
             }
-            SPDLOG_LOGGER_CATCH()
+            SPDLOG_LOGGER_CATCH(msg.source)
         }
     }
 
@@ -203,14 +203,14 @@ SPDLOG_INLINE void logger::flush_()
         {
             sink->flush();
         }
-        SPDLOG_LOGGER_CATCH()
+        SPDLOG_LOGGER_CATCH(source_loc())
     }
 }
 
 SPDLOG_INLINE void logger::dump_backtrace_()
 {
     using details::log_msg;
-    if (tracer_.enabled())
+    if (tracer_.enabled() && !tracer_.empty())
     {
         sink_it_(log_msg{name(), level::info, "****************** Backtrace Start ******************"});
         tracer_.foreach_pop([this](const log_msg &msg) { this->sink_it_(msg); });
