@@ -3,6 +3,7 @@ cc_library(
     visibility = ["//visibility:public"],
     hdrs = glob(["include/**/*.h*"]),
     includes = ["include"],
+    copts = ["--std=c++11"],
 )
 
 
@@ -14,6 +15,7 @@ cc_library(
     ],
     srcs = ["src/spdlog.cpp"],
     includes = ["include"],
+    copts = ["--std=c++11"],
 )
 
 
